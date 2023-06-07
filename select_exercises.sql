@@ -35,5 +35,7 @@ WHERE sales_mil >= 20;
 
 -- All the albums with a genre of "Rock". Why do these query results not include albums with a genre of "Hard rock" or "Progressive rock"?
 
-
+SELECT genre
+FROM albums
+WHERE genre = 'rock';
 -- As always, commit your changes after each step and push them out to GitHub

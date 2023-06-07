@@ -33,3 +33,6 @@ VALUES ('Michael Jackson', 'Thriller', 1982, 51.2, 'Pop, Post-Disco, Funk, Rock'
         ('The Beatles', 'Sgt. Pepper''s Lonely Hearts Club Band', 1967, 18.3, 'Rock'),
         ('Michael Jackson', 'Dangerous', 1991, 17, 'R&B'),
         ('The Beatles', 'Abby Road', 1969, 16.9, 'Rock');
+
+
+TRUNCATE albums;

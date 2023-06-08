@@ -37,4 +37,4 @@
         FROM employees
         WHERE year(hire_date) BETWEEN 1990 AND 1999
           AND MONTH(birth_date)= 12
-          AND DAY(birth_date)= 25
+          AND DAY(birth_date)= 25;

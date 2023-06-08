@@ -1,6 +1,4 @@
---LIMIT EXERCISE
-
--- MySQL provides a way to return only unique results from our queries with the keyword DISTINCT. For example, to find all the unique titles within the company, we could run the following query:
+        # LIMIT EXERCISE
 
 --     List the first 10 distinct last name sorted in descending order. Your result should look like this:
 SELECT DISTINCT last_name

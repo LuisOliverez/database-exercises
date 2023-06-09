@@ -1,16 +1,28 @@
-SELECT departments.dept_name AS Department_Name, CONCAT (employees.first_name, ' ', employees.last_name) AS 'Department Manager'
-FROM departments
-JOIN dept_manager ON dept_manager.dept_no = departments.dept_no
-JOIN employees ON employees.emp_no = dept_manager.emp_no
-WHERE dept_manager.to_date = '9999-01-01' AND employees.gerner = 'F';
+-- write a query that shows each department along with the name of the current manager for that department.
+
+SELECT d.dept_name, CONCAT(e.first_name, ' ', e.last_name) AS full_name
+FROM employees AS e
+         JOIN dept_manager AS dm ON dm.emp_no = e.emp_no
+         JOIN departments AS d ON d.dept_no = dm.dept_no
+WHERE dm.to_date = '9999-01-01'
+  AND CURDATE() BETWEEN dm.from_date AND dm.to_date
+ORDER BY dept_name;
 
 
 
--- SELECT titles.title AS title, COUNT(*) AS 'Total'
--- FROM departments
---          JOIN dept_emp ON dept_emp.dept_no = departments.dept_no
---          JOIN titles ON title.emp_no = dept_emp.emp.no
--- WHERE deparmtnest.demp_name = 'Customer Service' AND titels.to_date = '9999-01-01' AND dempt_emp.to_date = '9999-01-01';99-01-01' AND dept_emp.to_date = '9999-01-01';
+-- Find the name of all departments currently managed by women
+
+SELECT d.dept_name AS 'Department Name', CONCAT(e.first_name, ' ', e.last_name) AS 'Full Name'
+FROM employees AS e
+         JOIN dept_manager AS dm ON dm.emp_no = e.emp_no
+         JOIN departments AS d ON d.dept_no = dm.dept_no
+WHERE dm.to_date = '9999-01-01'
+  AND CURDATE() BETWEEN dm.from_date AND dm.to_date
+  AND e.gender = 'f'
+ORDER BY dept_name;
+
+-- Find the current titles of employees currently working in the Customer Service department.
+
 
 
 

@@ -1,11 +1,12 @@
-SELECT * FROM employees
+-- Find all the employees with the same hire date as employee 101010 using a subquery.
+SELECT hire_date FROM employees
 WHERE hire_date IN
 (SELECT hire_date
  FROM employees WHERE emp_no = '101010');
 
 
 
-
+-- Find all the titles held by all employees with the first name Aamod.
 SELECT Distinct title
 FROM titles
 WHERE emp_no IN(
@@ -18,25 +19,15 @@ WHERE emp_no IN(
     SELECT emp_no FROM employees WHERE first_name = 'Aamod');
 
 
-SELECT first_name, last_name
-FROM employees
-WHERE emp_no IN(
-    SELECT emp_no........
-    );
 
-
-SELECT d.dept_name
-FROM departments AS d
-WHERE d.dept_no IN(
-FROM dept_maneger dm
-JOIN employees e ON dm.emp_no
-WHERE dm.to_date = '9999-01-01' AND e.gender = 'f');
-
+-- Find all the current department managers that are female
 
 SELECT e.first_name, e.last_name
-FROM employees e
-WHERE e.emp_no =
-      (SELECT s.emp_no
-       FROM salaries s
-       ORDER BY salary DESC
-       limit  1);
+FROM employees AS e
+WHERE e.emp_no IN(
+    SELECT dm.emp_no
+    FROM dept_manager AS dm
+             JOIN employees AS e ON dm.emp_no = e.emp_no
+    WHERE dm.to_date = '9999-01-01' AND e.gender = 'f');
+
+
